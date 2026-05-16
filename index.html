@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriCopilot — AI Dietitian Assistant</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- LEFT SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.2"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">NutriCopilot</span>
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12h18M3 6h18M3 18h18"/>
+                    </svg>
+                </button>
+            </div>
+
+            <button class="new-patient-btn" id="newPatientBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M5 12h14"/>
+                </svg>
+                New Patient
+            </button>
+
+            <div class="search-box">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="M21 21l-4.35-4.35"/>
+                </svg>
+                <input type="text" placeholder="Search patients..." id="patientSearch">
+            </div>
+
+            <div class="patient-list" id="patientList">
+                <div class="patient-group">
+                    <span class="group-label">Today</span>
+                    <div class="patient-item active" data-id="1">
+                        <div class="patient-avatar">RS</div>
+                        <div class="patient-info">
+                            <span class="patient-name">Rajesh Sharma</span>
+                            <span class="patient-time">10 min ago</span>
+                        </div>
+                    </div>
+                    <div class="patient-item" data-id="2">
+                        <div class="patient-avatar">PM</div>
+                        <div class="patient-info">
+                            <span class="patient-name">Priya Mehta</span>
+                            <span class="patient-time">1 hr ago</span>
+                        </div>
+                    </div>
+                    <div class="patient-item" data-id="3">
+                        <div class="patient-avatar">AK</div>
+                        <div class="patient-info">
+                            <span class="patient-name">Amit Kumar</span>
+                            <span class="patient-time">3 hrs ago</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="patient-group">
+                    <span class="group-label">Yesterday</span>
+                    <div class="patient-item" data-id="4">
+                        <div class="patient-avatar">SG</div>
+                        <div class="patient-info">
+                            <span class="patient-name">Sunita Gupta</span>
+                            <span class="patient-time">Yesterday</span>
+                        </div>
+                    </div>
+                    <div class="patient-item" data-id="5">
+                        <div class="patient-avatar">VR</div>
+                        <div class="patient-info">
+                            <span class="patient-name">Vikram Rao</span>
+                            <span class="patient-time">Yesterday</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="patient-group">
+                    <span class="group-label">Older</span>
+                    <div class="patient-item" data-id="6">
+                        <div class="patient-avatar">NK</div>
+                        <div class="patient-info">
+                            <span class="patient-name">Neha Kapoor</span>
+                            <span class="patient-time">3 days ago</span>
+                        </div>
+                    </div>
+                    <div class="patient-item" data-id="7">
+                        <div class="patient-avatar">DP</div>
+                        <div class="patient-info">
+                            <span class="patient-name">Deepak Patel</span>
+                            <span class="patient-time">5 days ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- CENTER MAIN AREA -->
+        <main class="main-content" id="mainContent">
+            <!-- Welcome State -->
+            <div class="welcome-state" id="welcomeState">
+                <div class="greeting-section">
+                    <h1 class="greeting" id="greeting">Good Evening, Dr. Sharma</h1>
+                    <p class="greeting-sub">Upload a patient report or start a conversation</p>
+                </div>
+
+                <div class="quick-actions">
+                    <div class="quick-action-card">
+                        <div class="qa-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14,2 14,8 20,8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                            </svg>
+                        </div>
+                        <span>Upload Blood Report</span>
+                    </div>
+                    <div class="quick-action-card">
+                        <div class="qa-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <span>Quick Diet Plan</span>
+                    </div>
+                    <div class="quick-action-card">
+                        <div class="qa-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/>
+                                <line x1="16" y1="8" x2="2" y2="22"/>
+                                <line x1="17.5" y1="15" x2="9" y2="15"/>
+                            </svg>
+                        </div>
+                        <span>Review & Edit Plan</span>
+                    </div>
+                </div>
+
+                <div class="prompt-container" id="promptContainer">
+                    <div class="prompt-box">
+                        <div class="prompt-upload-area" id="dropZone">
+                            <div class="drop-indicator" id="dropIndicator">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                    <polyline points="17,8 12,3 7,8"/>
+                                    <line x1="12" y1="3" x2="12" y2="15"/>
+                                </svg>
+                                <span>Drop patient report here</span>
+                            </div>
+                        </div>
+                        <div class="prompt-input-wrapper">
+                            <button class="prompt-action-btn upload-btn" id="uploadBtn" title="Upload Report">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+                                </svg>
+                            </button>
+                            <textarea class="prompt-input" id="promptInput" placeholder="Describe patient condition or upload a report..." rows="1"></textarea>
+                            <button class="prompt-action-btn voice-btn" id="voiceBtn" title="Voice Input">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                                    <line x1="12" y1="19" x2="12" y2="23"/>
+                                    <line x1="8" y1="23" x2="16" y2="23"/>
+                                </svg>
+                            </button>
+                            <button class="generate-btn" id="generateBtn" title="Generate">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="22" y1="2" x2="11" y2="13"/>
+                                    <polygon points="22,2 15,22 11,13 2,9"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <input type="file" id="fileInput" accept=".pdf,.jpg,.png,.jpeg" hidden>
+                </div>
+            </div>
+
+            <!-- Chat/Conversation State -->
+            <div class="chat-state hidden" id="chatState">
+                <div class="chat-messages" id="chatMessages"></div>
+
+                <div class="chat-input-container">
+                    <div class="prompt-box">
+                        <div class="prompt-input-wrapper">
+                            <button class="prompt-action-btn upload-btn" id="chatUploadBtn" title="Upload Report">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+                                </svg>
+                            </button>
+                            <textarea class="prompt-input" id="chatInput" placeholder="Ask follow-up or give instructions..." rows="1"></textarea>
+                            <button class="generate-btn" id="chatSendBtn" title="Send">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="22" y1="2" x2="11" y2="13"/>
+                                    <polygon points="22,2 15,22 11,13 2,9"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- RIGHT CONTEXT PANEL -->
+        <aside class="context-panel" id="contextPanel">
+            <div class="context-panel-header">
+                <h3>Patient Context</h3>
+                <button class="panel-close-btn" id="contextPanelClose">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 6L6 18M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Empty State -->
+            <div class="context-empty" id="contextEmpty">
+                <div class="context-empty-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                    </svg>
+                </div>
+                <p>Upload a report to see patient context</p>
+            </div>
+
+            <!-- Patient Data -->
+            <div class="context-data hidden" id="contextData">
+                <div class="patient-profile-card">
+                    <div class="profile-avatar" id="profileAvatar">RS</div>
+                    <div class="profile-details">
+                        <h4 id="profileName">Rajesh Sharma</h4>
+                        <span class="profile-meta" id="profileMeta">Male • 52 yrs • BMI 28.4</span>
+                    </div>
+                    <div class="profile-badge critical" id="profileBadge">High Risk</div>
+                </div>
+
+                <div class="vitals-grid" id="vitalsGrid">
+                    <div class="vital-card">
+                        <span class="vital-label">HbA1c</span>
+                        <span class="vital-value high">8.2%</span>
+                        <span class="vital-status">Above Normal</span>
+                    </div>
+                    <div class="vital-card">
+                        <span class="vital-label">Cholesterol</span>
+                        <span class="vital-value high">245 mg/dL</span>
+                        <span class="vital-status">High</span>
+                    </div>
+                    <div class="vital-card">
+                        <span class="vital-label">BP</span>
+                        <span class="vital-value warning">142/92</span>
+                        <span class="vital-status">Elevated</span>
+                    </div>
+                    <div class="vital-card">
+                        <span class="vital-label">Vitamin D</span>
+                        <span class="vital-value low">12 ng/mL</span>
+                        <span class="vital-status">Deficient</span>
+                    </div>
+                    <div class="vital-card">
+                        <span class="vital-label">Creatinine</span>
+                        <span class="vital-value normal">1.1 mg/dL</span>
+                        <span class="vital-status">Normal</span>
+                    </div>
+                    <div class="vital-card">
+                        <span class="vital-label">Fasting Sugar</span>
+                        <span class="vital-value high">168 mg/dL</span>
+                        <span class="vital-status">High</span>
+                    </div>
+                </div>
+
+                <div class="context-section">
+                    <h4 class="context-section-title">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                            <line x1="12" y1="9" x2="12" y2="13"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                        Health Alerts
+                    </h4>
+                    <div class="alert-chips" id="alertChips">
+                        <span class="alert-chip critical">Pre-Diabetic → Diabetic</span>
+                        <span class="alert-chip warning">Hypertension Stage 1</span>
+                        <span class="alert-chip warning">Vitamin D Deficient</span>
+                        <span class="alert-chip info">High LDL Cholesterol</span>
+                    </div>
+                </div>
+
+                <div class="context-section">
+                    <h4 class="context-section-title">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 16v-4M12 8h.01"/>
+                        </svg>
+                        AI Observations
+                    </h4>
+                    <div class="observations-list" id="observationsList">
+                        <div class="observation-item">
+                            <span class="obs-dot"></span>
+                            <p>Patient shows progressive insulin resistance. Diet must prioritize low glycemic index foods.</p>
+                        </div>
+                        <div class="observation-item">
+                            <span class="obs-dot"></span>
+                            <p>Lipid profile suggests reducing saturated fats and increasing omega-3 intake.</p>
+                        </div>
+                        <div class="observation-item">
+                            <span class="obs-dot"></span>
+                            <p>Severe Vitamin D deficiency — recommend sun exposure + supplementation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="context-section">
+                    <h4 class="context-section-title">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                        </svg>
+                        Dietary Restrictions
+                    </h4>
+                    <div class="restriction-chips" id="restrictionChips">
+                        <span class="restriction-chip">No Refined Sugar</span>
+                        <span class="restriction-chip">Low Sodium</span>
+                        <span class="restriction-chip">Low Saturated Fat</span>
+                        <span class="restriction-chip">High Fiber</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Mobile overlay -->
+    <div class="mobile-overlay hidden" id="mobileOverlay"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
