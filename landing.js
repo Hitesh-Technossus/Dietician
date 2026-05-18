@@ -93,15 +93,21 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 // ============================================
-// WATCH DEMO BUTTON
+// WATCH DEMO / BOOK DEMO BUTTONS
 // ============================================
 const watchDemoBtn = document.getElementById('watchDemoBtn');
 if (watchDemoBtn) {
     watchDemoBtn.addEventListener('click', () => {
-        const demo = document.getElementById('ai-experience');
-        if (demo) {
-            demo.scrollIntoView({ behavior: 'smooth' });
-        }
+        const target = document.getElementById('workflow') || document.getElementById('features');
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+}
+
+const bookDemoBtn = document.getElementById('bookDemoBtn');
+if (bookDemoBtn) {
+    bookDemoBtn.addEventListener('click', () => {
+        // Placeholder: route to demo booking page or open modal
+        window.location.href = 'signup.html';
     });
 }
 

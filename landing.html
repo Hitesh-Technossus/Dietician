@@ -3,568 +3,533 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NutriCopilot — AI Copilot for Modern Dietitians</title>
+    <title>NutriCopilot — AI Clinical Nutrition Assistant</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="landing.css">
 </head>
 <body>
-    <!-- PAGE TRANSITION OVERLAY -->
-    <div class="page-transition" id="pageTransition"></div>
 
-    <!-- NAVIGATION -->
-    <nav class="nav" id="nav">
-        <div class="nav-inner">
-            <a href="landing.html" class="nav-logo">
-                <div class="nav-logo-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
-                        <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                        <circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.2"/>
-                    </svg>
-                </div>
-                <span>NutriCopilot</span>
+<!-- PAGE TRANSITION -->
+<div class="page-transition" id="pageTransition"></div>
+
+<!-- ═══════════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════════ -->
+<nav class="nav" id="nav">
+    <div class="nav-inner">
+        <a href="landing.html" class="nav-logo">
+            <div class="nav-logo-icon">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M12 7v5l3 1.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+            </div>
+            NutriCopilot
+        </a>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#features">Features</a>
+            <a href="#workflow">Workflow</a>
+            <a href="#testimonials">Testimonials</a>
+        </div>
+
+        <div class="nav-actions">
+            <a href="login.html" class="nav-link-btn">Log in</a>
+            <a href="signup.html" class="nav-cta-btn">Get Started</a>
+        </div>
+
+        <button class="nav-mobile-toggle" id="mobileNavToggle" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<div class="mobile-nav-drawer hidden" id="mobileNavDrawer">
+    <a href="#features">Features</a>
+    <a href="#workflow">Workflow</a>
+    <a href="#testimonials">Testimonials</a>
+    <div class="mobile-nav-actions">
+        <a href="login.html" class="nav-link-btn">Log in</a>
+        <a href="signup.html" class="nav-cta-btn">Get Started</a>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     HERO — Split layout
+═══════════════════════════════════════════ -->
+<section class="hero">
+    <!-- LEFT: Messaging -->
+    <div class="hero-left">
+        <div class="hero-badge reveal">
+            <span class="hero-badge-dot"></span>
+            AI Assistant for Clinical Nutrition Teams
+        </div>
+
+        <h1 class="hero-title reveal">
+            Generate Clinical<br>
+            <span class="hero-title-accent">Diet Plans in Minutes</span>
+        </h1>
+
+        <p class="hero-subtitle reveal">
+            Upload patient reports, extract biomarkers automatically,
+            and generate doctor-reviewable diet plans instantly.
+        </p>
+
+        <div class="hero-actions reveal">
+            <a href="signup.html" class="btn-primary btn-lg">
+                Start Free
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
-            <div class="nav-links" id="navLinks">
-                <a href="#features">Features</a>
-                <a href="#how-it-works">How It Works</a>
-                <a href="#testimonials">Testimonials</a>
-                <a href="#pricing">Pricing</a>
-            </div>
-            <div class="nav-actions">
-                <a href="login.html" class="nav-link-btn">Log in</a>
-                <a href="signup.html" class="nav-cta-btn">Get Started</a>
-            </div>
-            <button class="nav-mobile-toggle" id="mobileNavToggle" aria-label="Menu">
-                <span></span><span></span><span></span>
+            <button class="btn-secondary btn-lg" id="watchDemoBtn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/></svg>
+                Watch Demo
             </button>
         </div>
-    </nav>
 
-    <!-- MOBILE NAV -->
-    <div class="mobile-nav-drawer hidden" id="mobileNavDrawer">
-        <a href="#features">Features</a>
-        <a href="#how-it-works">How It Works</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#pricing">Pricing</a>
-        <div class="mobile-nav-actions">
-            <a href="login.html" class="nav-link-btn">Log in</a>
-            <a href="signup.html" class="nav-cta-btn" style="width:100%;text-align:center;">Get Started</a>
+        <div class="hero-trust reveal">
+            <span class="hero-trust-dot"></span>
+            Trusted by modern clinical nutrition teams
         </div>
     </div>
 
-    <!-- HERO SECTION -->
-    <section class="hero" id="hero">
-        <div class="hero-bg">
-            <div class="hero-glow hero-glow-1"></div>
-            <div class="hero-glow hero-glow-2"></div>
-            <div class="hero-glow hero-glow-3"></div>
-            <div class="hero-grid"></div>
-        </div>
-
-        <div class="hero-content">
-            <div class="hero-badge reveal">
-                <span class="hero-badge-dot"></span>
-                Now in Private Beta
-            </div>
-            <h1 class="hero-title reveal">
-                AI Copilot for<br>
-                <span class="hero-title-accent">Modern Dietitians</span>
-            </h1>
-            <p class="hero-subtitle reveal">
-                Generate personalized clinical diet plans in minutes, not hours.<br>
-                Let AI handle the repetitive work — you focus on patient care.
-            </p>
-            <div class="hero-actions reveal">
-                <a href="signup.html" class="btn-primary btn-lg">
-                    Start Free
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </a>
-                <button class="btn-secondary btn-lg" id="watchDemoBtn">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/></svg>
-                    Watch Demo
-                </button>
-            </div>
-        </div>
-
-        <!-- HERO MOCKUP -->
-        <div class="hero-mockup reveal">
-            <div class="mockup-frame">
-                <div class="mockup-topbar">
-                    <div class="mockup-dots"><span></span><span></span><span></span></div>
-                    <span class="mockup-url">app.nutricopilot.ai</span>
+    <!-- RIGHT: Product UI mockup -->
+    <div class="hero-right reveal">
+        <div class="hero-mockup-frame">
+            <!-- Browser chrome -->
+            <div class="mockup-bar">
+                <div class="mockup-dots">
+                    <span></span><span></span><span></span>
                 </div>
-                <div class="mockup-body">
-                    <!-- Sidebar preview -->
-                    <div class="mockup-sidebar">
-                        <div class="mockup-logo-row">
-                            <div class="m-logo-icon"></div>
-                            <div class="m-bar" style="width:60%"></div>
-                        </div>
-                        <div class="m-btn-full"></div>
-                        <div class="m-list-item active"><div class="m-avatar"></div><div class="m-bar" style="width:70%"></div></div>
-                        <div class="m-list-item"><div class="m-avatar"></div><div class="m-bar" style="width:55%"></div></div>
-                        <div class="m-list-item"><div class="m-avatar"></div><div class="m-bar" style="width:65%"></div></div>
+                <div class="mockup-url-pill">app.nutricopilot.ai</div>
+            </div>
+
+            <!-- App UI -->
+            <div class="mockup-ui">
+                <!-- Sidebar: patient list -->
+                <div class="mockup-sidebar">
+                    <div class="ms-logo">
+                        <div class="ms-logo-icon"></div>
+                        <div class="ms-logo-text"></div>
                     </div>
-                    <!-- Chat preview -->
-                    <div class="mockup-chat">
-                        <div class="m-greeting">
-                            <div class="m-bar" style="width:50%;height:18px;margin:0 auto 8px"></div>
-                            <div class="m-bar" style="width:35%;height:10px;margin:0 auto;opacity:.5"></div>
-                        </div>
-                        <div class="m-message-ai">
-                            <div class="m-msg-avatar"></div>
-                            <div class="m-msg-body">
-                                <div class="m-bar" style="width:90%"></div>
-                                <div class="m-bar" style="width:70%"></div>
-                                <div class="m-bar" style="width:80%"></div>
-                            </div>
-                        </div>
-                        <div class="m-diet-cards">
-                            <div class="m-diet-card">
-                                <div class="m-bar" style="width:40%;height:8px;margin-bottom:6px"></div>
-                                <div class="m-bar" style="width:90%;opacity:.4"></div>
-                                <div class="m-bar" style="width:75%;opacity:.4"></div>
-                            </div>
-                            <div class="m-diet-card">
-                                <div class="m-bar" style="width:35%;height:8px;margin-bottom:6px"></div>
-                                <div class="m-bar" style="width:85%;opacity:.4"></div>
-                                <div class="m-bar" style="width:60%;opacity:.4"></div>
-                            </div>
-                        </div>
-                        <div class="m-input-bar"></div>
+                    <div class="ms-new-btn"></div>
+                    <div class="ms-patient active">
+                        <div class="ms-avatar"></div>
+                        <div class="ms-name" style="width:70%"></div>
                     </div>
-                    <!-- Context panel preview -->
-                    <div class="mockup-context">
-                        <div class="m-profile-card">
-                            <div class="m-avatar lg"></div>
-                            <div class="m-bar" style="width:60%"></div>
-                            <div class="m-bar" style="width:40%;opacity:.5"></div>
-                        </div>
-                        <div class="m-vitals">
-                            <div class="m-vital"><div class="m-bar" style="width:30%;opacity:.5;height:6px"></div><div class="m-bar" style="width:50%;height:10px"></div></div>
-                            <div class="m-vital"><div class="m-bar" style="width:30%;opacity:.5;height:6px"></div><div class="m-bar" style="width:50%;height:10px"></div></div>
-                            <div class="m-vital"><div class="m-bar" style="width:30%;opacity:.5;height:6px"></div><div class="m-bar" style="width:50%;height:10px"></div></div>
-                            <div class="m-vital"><div class="m-bar" style="width:30%;opacity:.5;height:6px"></div><div class="m-bar" style="width:50%;height:10px"></div></div>
-                        </div>
+                    <div class="ms-patient">
+                        <div class="ms-avatar"></div>
+                        <div class="ms-name" style="width:55%"></div>
+                    </div>
+                    <div class="ms-patient">
+                        <div class="ms-avatar"></div>
+                        <div class="ms-name" style="width:65%"></div>
+                    </div>
+                    <div class="ms-patient">
+                        <div class="ms-avatar"></div>
+                        <div class="ms-name" style="width:50%"></div>
                     </div>
                 </div>
-            </div>
-            <!-- Floating cards -->
-            <div class="floating-card fc-1">
-                <div class="fc-icon" style="background:#ecfdf5;color:#10b981;">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
-                </div>
-                <div>
-                    <span class="fc-label">HbA1c Analyzed</span>
-                    <span class="fc-value">8.2% — High Risk</span>
-                </div>
-            </div>
-            <div class="floating-card fc-2">
-                <div class="fc-icon" style="background:#eff6ff;color:#2563eb;">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg>
-                </div>
-                <div>
-                    <span class="fc-label">Diet Plan Generated</span>
-                    <span class="fc-value">7 meals · 1,680 kcal</span>
-                </div>
-            </div>
-            <div class="floating-card fc-3">
-                <div class="fc-icon" style="background:#fef3c7;color:#f59e0b;">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
-                </div>
-                <div>
-                    <span class="fc-label">Allergy Detected</span>
-                    <span class="fc-value">Lactose Intolerant</span>
+
+                <!-- Main: patient context + diet plan -->
+                <div class="mockup-main">
+                    <!-- Patient header -->
+                    <div class="mm-header">
+                        <div class="mm-patient-block">
+                            <div class="mm-patient-avatar">RS</div>
+                            <div class="mm-patient-info">
+                                <div class="mm-patient-name-bar"></div>
+                                <div class="mm-patient-sub-bar"></div>
+                            </div>
+                        </div>
+                        <div class="mm-status-badge">
+                            <div class="mm-status-dot"></div>
+                            AI Active
+                        </div>
+                    </div>
+
+                    <!-- Uploaded report -->
+                    <div class="mm-report-row">
+                        <div class="mm-report-icon">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+                        </div>
+                        <div class="mm-report-meta">
+                            <div class="mm-report-name"></div>
+                            <div class="mm-report-size"></div>
+                        </div>
+                        <div class="mm-check-icon">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>
+                        </div>
+                    </div>
+
+                    <!-- Extracted biomarkers -->
+                    <div class="mm-biomarkers">
+                        <div class="mm-bio high">
+                            <div class="mm-bio-label">HbA1c</div>
+                            <div class="mm-bio-value">8.2%</div>
+                        </div>
+                        <div class="mm-bio warn">
+                            <div class="mm-bio-label">BP</div>
+                            <div class="mm-bio-value">142/92</div>
+                        </div>
+                        <div class="mm-bio low">
+                            <div class="mm-bio-label">Vit D</div>
+                            <div class="mm-bio-value">12 ng</div>
+                        </div>
+                        <div class="mm-bio ok">
+                            <div class="mm-bio-label">eGFR</div>
+                            <div class="mm-bio-value">88</div>
+                        </div>
+                    </div>
+
+                    <!-- Allergy alert -->
+                    <div class="mm-allergy">
+                        <div class="mm-allergy-icon">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                        </div>
+                        <span class="mm-allergy-text">Allergy detected — Lactose Intolerant · Avoiding dairy</span>
+                    </div>
+
+                    <!-- Generated meal plan -->
+                    <div class="mm-plan-header">
+                        <span class="mm-plan-label">Generated Diet Plan</span>
+                        <span class="mm-plan-kcal">1,680 kcal · 7 meals</span>
+                    </div>
+                    <div class="mm-meals">
+                        <div class="mm-meal">
+                            <span class="mm-meal-emoji">🌅</span>
+                            <span class="mm-meal-name">Early Morning — Methi water + almonds</span>
+                            <span class="mm-meal-kcal">80</span>
+                        </div>
+                        <div class="mm-meal">
+                            <span class="mm-meal-emoji">🍳</span>
+                            <span class="mm-meal-name">Breakfast — Moong chilla + green tea</span>
+                            <span class="mm-meal-kcal">320</span>
+                        </div>
+                        <div class="mm-meal">
+                            <span class="mm-meal-emoji">🥗</span>
+                            <span class="mm-meal-name">Lunch — Bajra roti + dal + sabzi</span>
+                            <span class="mm-meal-kcal">480</span>
+                        </div>
+                    </div>
+
+                    <!-- Doctor approval -->
+                    <div class="mm-approve">
+                        <div class="mm-approve-icon">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
+                        </div>
+                        <span class="mm-approve-text">Plan Approved by Dr. Sharma</span>
+                        <span class="mm-approve-time">Just now</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- TRUST STRIP -->
-    <section class="trust-strip reveal">
-        <p>Trusted by modern clinical nutrition teams</p>
+<!-- ═══════════════════════════════════════════
+     TRUST STRIP
+═══════════════════════════════════════════ -->
+<div class="trust-strip">
+    <div class="trust-strip-inner">
+        <span class="trust-label">Trusted by</span>
         <div class="trust-logos">
-            <div class="trust-logo">Apollo Hospitals</div>
-            <div class="trust-logo">Fortis</div>
-            <div class="trust-logo">Max Healthcare</div>
-            <div class="trust-logo">Manipal</div>
-            <div class="trust-logo">AIIMS Network</div>
+            <span class="trust-logo">Apollo Hospitals</span>
+            <span class="trust-logo">Fortis Healthcare</span>
+            <span class="trust-logo">Max Healthcare</span>
+            <span class="trust-logo">Manipal Hospitals</span>
+            <span class="trust-logo">AIIMS Network</span>
         </div>
-    </section>
+    </div>
+</div>
 
-    <!-- PROBLEM → SOLUTION -->
-    <section class="problem-solution" id="problem-solution">
-        <div class="section-container">
-            <div class="section-header reveal">
-                <span class="section-tag">The Problem</span>
-                <h2 class="section-title">Dietitians are drowning in repetitive work</h2>
-                <p class="section-desc">Creating personalized diet plans manually takes 15–20 minutes per patient. With 300+ patients daily, that's unsustainable.</p>
-            </div>
-            <div class="ps-grid">
-                <div class="ps-card ps-before reveal">
-                    <div class="ps-card-tag before">Before NutriCopilot</div>
-                    <ul class="ps-list">
-                        <li>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
-                            20 min per diet plan
-                        </li>
-                        <li>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
-                            Manual report reading
-                        </li>
-                        <li>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
-                            Missed allergies &amp; interactions
-                        </li>
-                        <li>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
-                            Doctor burnout
-                        </li>
-                    </ul>
-                </div>
-                <div class="ps-arrow reveal">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </div>
-                <div class="ps-card ps-after reveal">
-                    <div class="ps-card-tag after">With NutriCopilot</div>
-                    <ul class="ps-list">
-                        <li>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
-                            2 min per diet plan
-                        </li>
-                        <li>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
-                            AI-powered report analysis
-                        </li>
-                        <li>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
-                            Auto allergy &amp; risk detection
-                        </li>
-                        <li>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
-                            Doctor stays in control
-                        </li>
-                    </ul>
-                </div>
-            </div>
+<!-- ═══════════════════════════════════════════
+     PROBLEM → SOLUTION
+═══════════════════════════════════════════ -->
+<div class="section">
+    <div class="section-header">
+        <span class="section-tag reveal">The Problem</span>
+        <h2 class="section-title reveal">Repetitive work is burning out clinical dietitians</h2>
+        <p class="section-desc reveal">Creating diet plans manually takes 15–20 minutes per patient. With a full clinic, that's unsustainable.</p>
+    </div>
+
+    <div class="ps-grid">
+        <div class="ps-card reveal">
+            <div class="ps-card-tag before">Before NutriCopilot</div>
+            <ul class="ps-list">
+                <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+                    20 min per diet plan
+                </li>
+                <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+                    Manual report reading
+                </li>
+                <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+                    Repetitive, error-prone work
+                </li>
+                <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+                    Clinical burnout
+                </li>
+            </ul>
         </div>
-    </section>
 
-    <!-- FEATURE SHOWCASE -->
-    <section class="features" id="features">
-        <div class="section-container">
-            <div class="section-header reveal">
-                <span class="section-tag">Features</span>
-                <h2 class="section-title">Everything a clinical dietitian needs</h2>
-                <p class="section-desc">Powerful AI capabilities wrapped in a calm, intuitive interface.</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card reveal">
-                    <div class="feature-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                    </div>
-                    <h3>AI Report Parsing</h3>
-                    <p>Upload blood reports, prescriptions, or lab results. AI extracts vitals, flags abnormalities, and builds patient context instantly.</p>
-                </div>
-                <div class="feature-card reveal">
-                    <div class="feature-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg>
-                    </div>
-                    <h3>Smart Diet Generation</h3>
-                    <p>AI generates personalized 7-meal diet plans considering medical conditions, allergies, cuisine preferences, and nutritional targets.</p>
-                </div>
-                <div class="feature-card reveal">
-                    <div class="feature-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>
-                    </div>
-                    <h3>Voice Input</h3>
-                    <p>Dictate patient conditions, modifications, or instructions. AI understands clinical context and responds naturally.</p>
-                </div>
-                <div class="feature-card reveal">
-                    <div class="feature-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    </div>
-                    <h3>Patient Memory</h3>
-                    <p>Every patient is a persistent thread. AI remembers history, past plans, follow-ups, and treatment progression.</p>
-                </div>
-                <div class="feature-card reveal">
-                    <div class="feature-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    </div>
-                    <h3>PDF Export</h3>
-                    <p>Export approved diet plans as beautifully formatted PDF documents ready for patient handoff.</p>
-                </div>
-                <div class="feature-card reveal">
-                    <div class="feature-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20,6 9,17 4,12"/><circle cx="12" cy="12" r="10" stroke-width="1.5"/></svg>
-                    </div>
-                    <h3>Doctor Approval Workflow</h3>
-                    <p>Review, edit, regenerate, and approve plans. AI assists, doctor decides. Full clinical control maintained.</p>
-                </div>
-                <div class="feature-card reveal">
-                    <div class="feature-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                    </div>
-                    <h3>Allergy Detection</h3>
-                    <p>Automatic cross-referencing of patient allergies with meal ingredients. Zero-tolerance safety layer built in.</p>
-                </div>
-                <div class="feature-card reveal">
-                    <div class="feature-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-                    </div>
-                    <h3>Clinical Context Engine</h3>
-                    <p>Contextual follow-up questions, preference chips, and smart defaults. AI collects information conversationally — no forms.</p>
-                </div>
-            </div>
+        <div class="ps-arrow reveal">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
-    </section>
 
-    <!-- HOW IT WORKS -->
-    <section class="how-it-works" id="how-it-works">
-        <div class="section-container">
-            <div class="section-header reveal">
-                <span class="section-tag">How It Works</span>
-                <h2 class="section-title">From report to diet plan in 5 steps</h2>
-                <p class="section-desc">A seamless AI-first workflow that keeps you in control.</p>
+        <div class="ps-card reveal">
+            <div class="ps-card-tag after">With NutriCopilot</div>
+            <ul class="ps-list">
+                <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
+                    2 min workflows
+                </li>
+                <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
+                    AI-assisted analysis
+                </li>
+                <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
+                    Automatic risk detection
+                </li>
+                <li>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
+                    Doctor remains in control
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     HOW IT WORKS — 3 STEPS
+═══════════════════════════════════════════ -->
+<div class="section" id="workflow" style="background: white; max-width: 100%; padding: 80px 0;">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 0 32px;">
+        <div class="section-header">
+            <span class="section-tag reveal">How It Works</span>
+            <h2 class="section-title reveal">From report to approved plan in 3 steps</h2>
+            <p class="section-desc reveal">A focused AI-first workflow. No steep learning curve.</p>
+        </div>
+
+        <div class="steps-grid">
+            <!-- Step 1 -->
+            <div class="step-card reveal">
+                <div class="step-num">1</div>
+                <div class="step-title">Upload Patient Report</div>
+                <p class="step-desc">Drag & drop a blood report, lab PDF, or prescription. AI reads it in seconds.</p>
+                <div class="step-mini">
+                    <div class="step-mini-upload">
+                        <div class="step-mini-icon">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17,8 12,3 7,8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                        </div>
+                        <div class="step-mini-info">
+                            <span class="step-mini-filename">blood_report_rajesh.pdf</span>
+                            <span class="step-mini-type">PDF · 1.2 MB · Uploaded</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="steps-timeline">
-                <div class="step-item reveal">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h4>Upload Report</h4>
-                        <p>Drag & drop or click to upload blood reports, prescriptions, or lab results. Supports PDF, JPG, PNG.</p>
-                    </div>
-                    <div class="step-visual">
-                        <div class="step-mock upload-mock">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17,8 12,3 7,8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-                            <span>blood_report.pdf</span>
+
+            <!-- Step 2 -->
+            <div class="step-card reveal">
+                <div class="step-num">2</div>
+                <div class="step-title">AI Extracts Clinical Insights</div>
+                <p class="step-desc">NutriCopilot pulls biomarkers, flags risk values, and detects allergies automatically.</p>
+                <div class="step-mini">
+                    <div class="step-mini-vitals">
+                        <div class="step-mini-vital" style="background: #FEF2F2;">
+                            <span class="step-mini-vital-name">HbA1c</span>
+                            <span class="step-mini-vital-val" style="background:#FECACA; color:#EF4444;">8.2% ↑</span>
+                        </div>
+                        <div class="step-mini-vital" style="background: #FFFBEB;">
+                            <span class="step-mini-vital-name">Blood Pressure</span>
+                            <span class="step-mini-vital-val" style="background:#FDE68A; color:#B45309;">142/92</span>
+                        </div>
+                        <div class="step-mini-vital" style="background: #EEF2FF;">
+                            <span class="step-mini-vital-name">Vitamin D</span>
+                            <span class="step-mini-vital-val" style="background:#C7D2FE; color:#4338CA;">12 ng/mL ↓</span>
                         </div>
                     </div>
                 </div>
-                <div class="step-connector"></div>
-                <div class="step-item reveal">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h4>AI Extracts Vitals</h4>
-                        <p>NutriCopilot reads the report and extracts HbA1c, cholesterol, BP, vitamin levels, kidney markers, and more.</p>
-                    </div>
-                    <div class="step-visual">
-                        <div class="step-mock vitals-mock">
-                            <div class="vm-row"><span>HbA1c</span><strong style="color:#ef4444">8.2%</strong></div>
-                            <div class="vm-row"><span>BP</span><strong style="color:#f59e0b">142/92</strong></div>
-                            <div class="vm-row"><span>Vit D</span><strong style="color:#6366f1">12 ng</strong></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="step-connector"></div>
-                <div class="step-item reveal">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h4>Add Context</h4>
-                        <p>Confirm diet preference, allergies, medical conditions, cuisine, activity level, and goals using smart chips.</p>
-                    </div>
-                    <div class="step-visual">
-                        <div class="step-mock chips-mock">
-                            <span class="sm-chip active">Vegetarian</span>
-                            <span class="sm-chip">Vegan</span>
-                            <span class="sm-chip active">No Gluten</span>
-                            <span class="sm-chip">Diabetic</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="step-connector"></div>
-                <div class="step-item reveal">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h4>Generate Diet Plan</h4>
-                        <p>AI creates a comprehensive meal plan — morning to dinner — with hydration, restrictions, and supplement notes.</p>
-                    </div>
-                    <div class="step-visual">
-                        <div class="step-mock plan-mock">
-                            <div class="pm-row"><span>🌅</span> Early Morning</div>
-                            <div class="pm-row"><span>🍳</span> Breakfast</div>
-                            <div class="pm-row"><span>🥗</span> Lunch</div>
-                            <div class="pm-row"><span>🌙</span> Dinner</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="step-connector"></div>
-                <div class="step-item reveal">
-                    <div class="step-number">5</div>
-                    <div class="step-content">
-                        <h4>Review & Approve</h4>
-                        <p>Edit any section, regenerate meals, approve the final plan, and export as a polished PDF for the patient.</p>
-                    </div>
-                    <div class="step-visual">
-                        <div class="step-mock approve-mock">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
-                            <span style="color:#10b981;font-weight:600;font-size:13px;">Plan Approved</span>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-card reveal">
+                <div class="step-num">3</div>
+                <div class="step-title">Generate &amp; Approve Diet Plan</div>
+                <p class="step-desc">Review the AI-generated plan, edit if needed, approve, and export as a PDF.</p>
+                <div class="step-mini">
+                    <div class="step-mini-plan">
+                        <div class="step-mini-meal"><span>🌅</span> Early Morning — Methi water</div>
+                        <div class="step-mini-meal"><span>🍳</span> Breakfast — Moong chilla</div>
+                        <div class="step-mini-meal"><span>🥗</span> Lunch — Bajra roti + dal</div>
+                        <div class="step-approve-row">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
+                            Plan Approved — PDF Ready
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</div>
 
-    <!-- LIVE AI EXPERIENCE -->
-    <section class="ai-experience" id="ai-experience">
-        <div class="section-container">
-            <div class="section-header reveal">
-                <span class="section-tag">Live Preview</span>
-                <h2 class="section-title">See NutriCopilot in action</h2>
-                <p class="section-desc">Watch the AI analyze a report and generate a personalized diet plan.</p>
+<!-- ═══════════════════════════════════════════
+     FEATURES — 4 CARDS
+═══════════════════════════════════════════ -->
+<div class="section" id="features">
+    <div class="section-header">
+        <span class="section-tag reveal">Features</span>
+        <h2 class="section-title reveal">Built for real clinical workflows</h2>
+        <p class="section-desc reveal">Every feature designed with practicing dietitians and doctors.</p>
+    </div>
+
+    <div class="features-grid">
+        <div class="feature-card reveal">
+            <div class="feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
             </div>
-            <div class="ai-demo reveal">
-                <div class="demo-window">
-                    <div class="demo-topbar">
-                        <div class="mockup-dots"><span></span><span></span><span></span></div>
-                        <span>NutriCopilot Session</span>
+            <div class="feature-title">AI Report Parsing</div>
+            <p class="feature-desc">Upload blood reports and lab results. AI extracts HbA1c, BP, vitamins, kidney markers — and flags abnormalities instantly.</p>
+        </div>
+
+        <div class="feature-card reveal">
+            <div class="feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg>
+            </div>
+            <div class="feature-title">Smart Diet Generation</div>
+            <p class="feature-desc">AI generates personalized 7-meal plans accounting for conditions, allergies, cuisine, and nutritional targets. One click.</p>
+        </div>
+
+        <div class="feature-card reveal">
+            <div class="feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="feature-title">Patient Memory</div>
+            <p class="feature-desc">Every patient is a persistent thread. AI remembers history, past plans, follow-ups, and clinical progression across sessions.</p>
+        </div>
+
+        <div class="feature-card reveal">
+            <div class="feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="9,11 12,14 22,4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <div class="feature-title">Doctor Review Workflow</div>
+            <p class="feature-desc">Review, edit, regenerate, or approve. AI assists — the doctor always decides. Full clinical oversight maintained.</p>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     TESTIMONIALS
+═══════════════════════════════════════════ -->
+<div class="section" id="testimonials" style="background: white; max-width: 100%; padding: 80px 0;">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 0 32px;">
+        <div class="section-header">
+            <span class="section-tag reveal">Testimonials</span>
+            <h2 class="section-title reveal">Loved by clinical teams</h2>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card reveal">
+                <div class="tc-stars">★★★★★</div>
+                <p class="tc-quote">"NutriCopilot cut my diet planning time from 20 minutes to under 2. I can actually focus on patient counseling now instead of paperwork."</p>
+                <div class="tc-author">
+                    <div class="tc-avatar">AS</div>
+                    <div>
+                        <div class="tc-name">Dr. Ananya Sharma</div>
+                        <div class="tc-role">Clinical Dietitian, Apollo Hospitals</div>
                     </div>
-                    <div class="demo-chat" id="demoChat">
-                        <div class="demo-msg user-msg">
-                            <div class="demo-avatar user">DS</div>
-                            <div class="demo-bubble">
-                                <p>I've uploaded the blood report for Rajesh Sharma, 52M.</p>
-                            </div>
-                        </div>
-                        <div class="demo-msg ai-msg">
-                            <div class="demo-avatar ai">AI</div>
-                            <div class="demo-bubble">
-                                <p>I've analyzed the report. Key findings:</p>
-                                <div class="demo-vitals">
-                                    <span class="dv high">HbA1c: 8.2%</span>
-                                    <span class="dv warn">BP: 142/92</span>
-                                    <span class="dv low">Vit D: 12 ng/mL</span>
-                                    <span class="dv high">Cholesterol: 245</span>
-                                </div>
-                                <p style="margin-top:8px;font-size:12px;color:#5f6368;">Patient shows progressive insulin resistance. Dietary intervention is critical.</p>
-                            </div>
-                        </div>
-                        <div class="demo-msg ai-msg">
-                            <div class="demo-avatar ai">AI</div>
-                            <div class="demo-bubble">
-                                <p>Diet plan generated — 7 meals, 1,680 kcal, optimized for sugar control &amp; heart health.</p>
-                                <div class="demo-plan-preview">
-                                    <div class="dpp-item">🌅 <strong>Early Morning</strong> — Methi water + soaked almonds</div>
-                                    <div class="dpp-item">🍳 <strong>Breakfast</strong> — Moong dal chilla + green tea</div>
-                                    <div class="dpp-item">🥗 <strong>Lunch</strong> — Bajra roti + dal + sabzi + curd</div>
-                                    <div class="dpp-item">🌙 <strong>Dinner</strong> — Multigrain roti + palak paneer</div>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card reveal">
+                <div class="tc-stars">★★★★★</div>
+                <p class="tc-quote">"The AI understands Indian cuisine perfectly. The allergy detection has already flagged conflicts that I would have missed in a busy clinic."</p>
+                <div class="tc-author">
+                    <div class="tc-avatar">RK</div>
+                    <div>
+                        <div class="tc-name">Dr. Ravi Kumar</div>
+                        <div class="tc-role">Head of Nutrition, Fortis Delhi</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card reveal">
+                <div class="tc-stars">★★★★★</div>
+                <p class="tc-quote">"Finally a clinical tool that actually feels like it was built for doctors — not a generic health app. The UX is exceptional and the AI is genuinely useful."</p>
+                <div class="tc-author">
+                    <div class="tc-avatar">PM</div>
+                    <div>
+                        <div class="tc-name">Dr. Priya Mehta</div>
+                        <div class="tc-role">Endocrinologist, Max Healthcare</div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</div>
 
-    <!-- TESTIMONIALS -->
-    <section class="testimonials" id="testimonials">
-        <div class="section-container">
-            <div class="section-header reveal">
-                <span class="section-tag">Testimonials</span>
-                <h2 class="section-title">Loved by clinical teams</h2>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card reveal">
-                    <div class="tc-stars">★★★★★</div>
-                    <p>"NutriCopilot cut my diet planning time from 20 minutes to under 2. I can actually focus on patient counseling now."</p>
-                    <div class="tc-author">
-                        <div class="tc-avatar">AS</div>
-                        <div>
-                            <strong>Dr. Ananya Sharma</strong>
-                            <span>Clinical Dietitian, Apollo Hospitals</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card reveal">
-                    <div class="tc-stars">★★★★★</div>
-                    <p>"The AI understands Indian cuisine perfectly. The allergy detection alone has prevented so many potential issues."</p>
-                    <div class="tc-author">
-                        <div class="tc-avatar">RK</div>
-                        <div>
-                            <strong>Dr. Ravi Kumar</strong>
-                            <span>Head of Nutrition, Fortis Delhi</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card reveal">
-                    <div class="tc-stars">★★★★★</div>
-                    <p>"Finally a tool that feels like it was built for real clinical workflows, not a generic health app. The UX is exceptional."</p>
-                    <div class="tc-author">
-                        <div class="tc-avatar">PM</div>
-                        <div>
-                            <strong>Dr. Priya Mehta</strong>
-                            <span>Endocrinologist, Max Healthcare</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!-- ═══════════════════════════════════════════
+     FINAL CTA
+═══════════════════════════════════════════ -->
+<div class="final-cta-wrap">
+    <div class="final-cta-inner reveal">
+        <h2 class="final-cta-title">Let AI Handle the Repetitive Work</h2>
+        <p class="final-cta-sub">Focus more on patient care and less on manual diet planning.</p>
+        <div class="final-cta-actions">
+            <a href="signup.html" class="btn-white">
+                Launch NutriCopilot
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <button class="btn-outline-white" id="bookDemoBtn">Book Demo</button>
         </div>
-    </section>
+    </div>
+</div>
 
-    <!-- FINAL CTA -->
-    <section class="final-cta">
-        <div class="section-container">
-            <div class="cta-content reveal">
-                <h2>Let AI handle the repetitive work.<br>Focus on patient care.</h2>
-                <p>Join hundreds of modern dietitians transforming their clinical workflow.</p>
-                <div class="hero-actions">
-                    <a href="signup.html" class="btn-primary btn-lg">
-                        Launch NutriCopilot
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </a>
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <a href="landing.html" class="nav-logo">
+                <div class="nav-logo-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/>
+                        <path d="M12 7v5l3 1.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    </svg>
                 </div>
-            </div>
+                NutriCopilot
+            </a>
+            <span class="footer-tagline">AI-powered clinical nutrition assistant</span>
         </div>
-    </section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="section-container">
-            <div class="footer-inner">
-                <div class="footer-brand">
-                    <div class="nav-logo">
-                        <div class="nav-logo-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
-                                <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                                <circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.2"/>
-                            </svg>
-                        </div>
-                        <span>NutriCopilot</span>
-                    </div>
-                    <p>AI-powered clinical nutrition assistant.</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-col">
-                        <h4>Product</h4>
-                        <a href="#features">Features</a>
-                        <a href="#how-it-works">How It Works</a>
-                        <a href="#pricing">Pricing</a>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Company</h4>
-                        <a href="#">About</a>
-                        <a href="#">Blog</a>
-                        <a href="#">Careers</a>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Legal</h4>
-                        <a href="#">Privacy</a>
-                        <a href="#">Terms</a>
-                        <a href="#">HIPAA</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <span>&copy; 2026 NutriCopilot. All rights reserved.</span>
-            </div>
+        <div class="footer-links">
+            <a href="#features" class="footer-link">Features</a>
+            <span class="footer-sep">·</span>
+            <a href="#workflow" class="footer-link">Workflow</a>
+            <span class="footer-sep">·</span>
+            <a href="login.html" class="footer-link">Log in</a>
+            <span class="footer-sep">·</span>
+            <a href="signup.html" class="footer-link">Sign up</a>
+            <span class="footer-sep">·</span>
+            <a href="#" class="footer-link">Privacy</a>
+            <span class="footer-sep">·</span>
+            <a href="#" class="footer-link">Terms</a>
         </div>
-    </footer>
+    </div>
+    <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 NutriCopilot. All rights reserved.</span>
+        <span class="footer-copy">HIPAA Compliant · Clinically Validated</span>
+    </div>
+</footer>
 
-    <script src="landing.js"></script>
+<script src="landing.js"></script>
 </body>
 </html>
