@@ -1,117 +1,118 @@
 /* ============================================
-   NUTRI COPILOT — LANDING PAGE LOGIC
+   NUTRICOPILOT - LANDING PAGE INTERACTIONS
    ============================================ */
 
-// ============================================
-// NAV SCROLL EFFECT
-// ============================================
 const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-});
-
-// ============================================
-// MOBILE NAV
-// ============================================
 const mobileToggle = document.getElementById('mobileNavToggle');
 const mobileDrawer = document.getElementById('mobileNavDrawer');
+const watchDemoBtn = document.getElementById('watchDemoBtn');
+
+function syncNavState() {
+    if (!nav) return;
+    nav.classList.toggle('scrolled', window.scrollY > 18);
+}
+
+window.addEventListener('scroll', syncNavState, { passive: true });
+syncNavState();
+
+function closeMobileNav() {
+    if (!mobileDrawer || !mobileToggle) return;
+    mobileDrawer.classList.add('hidden');
+    mobileToggle.classList.remove('active');
+    mobileToggle.setAttribute('aria-expanded', 'false');
+}
 
 if (mobileToggle && mobileDrawer) {
     mobileToggle.addEventListener('click', () => {
-        mobileDrawer.classList.toggle('hidden');
+        const isOpen = mobileDrawer.classList.toggle('hidden') === false;
+        mobileToggle.classList.toggle('active', isOpen);
+        mobileToggle.setAttribute('aria-expanded', String(isOpen));
     });
 
-    mobileDrawer.querySelectorAll('a').forEach(a => {
-        a.addEventListener('click', () => {
-            mobileDrawer.classList.add('hidden');
-        });
+    mobileDrawer.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMobileNav);
     });
 }
 
-// ============================================
-// SCROLL REVEAL
-// ============================================
-function initScrollReveal() {
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, i) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.classList.add('visible');
-                }, i * 80);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-    reveals.forEach(el => observer.observe(el));
-}
-
-// ============================================
-// PAGE TRANSITIONS
-// ============================================
 function navigateTo(url) {
     const overlay = document.getElementById('pageTransition');
-    if (overlay) {
-        overlay.classList.remove('done');
-        overlay.classList.add('active');
-        setTimeout(() => {
-            window.location.href = url;
-        }, 500);
-    } else {
+    if (!overlay) {
         window.location.href = url;
+        return;
     }
+
+    overlay.classList.remove('done');
+    window.setTimeout(() => {
+        window.location.href = url;
+    }, 260);
 }
 
-// Intercept navigation links for smooth transitions
-document.addEventListener('click', (e) => {
-    const link = e.target.closest('a[href]');
+document.addEventListener('click', event => {
+    const link = event.target.closest('a[href]');
     if (!link) return;
 
     const href = link.getAttribute('href');
-    if (!href) return;
+    if (!href || href.startsWith('#') || href.startsWith('http') || link.target === '_blank') return;
 
-    // Only intercept local page links (not anchors)
-    if (href.endsWith('.html') && !href.startsWith('http')) {
-        e.preventDefault();
+    if (href.endsWith('.html')) {
+        event.preventDefault();
         navigateTo(href);
     }
 });
 
-// On page load, fade the page in smoothly
 window.addEventListener('DOMContentLoaded', () => {
     const overlay = document.getElementById('pageTransition');
     if (overlay) {
-        // Overlay starts at opacity:1 (via 'entering' class set in HTML)
-        // Double rAF ensures the browser has painted before we trigger the transition
-        requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-                overlay.classList.add('done');
-            });
-        });
+        requestAnimationFrame(() => overlay.classList.add('done'));
     }
+
+    initScrollReveal();
+    initFaqAccordions();
 });
 
-// ============================================
-// WATCH DEMO / BOOK DEMO BUTTONS
-// ============================================
-const watchDemoBtn = document.getElementById('watchDemoBtn');
+function initScrollReveal() {
+    const reveals = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+        reveals.forEach(el => el.classList.add('visible'));
+        return;
+    }
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        });
+    }, {
+        threshold: 0.14,
+        rootMargin: '0px 0px -40px 0px'
+    });
+
+    reveals.forEach((el, index) => {
+        el.style.transitionDelay = `${Math.min(index % 4, 3) * 70}ms`;
+        observer.observe(el);
+    });
+}
+
 if (watchDemoBtn) {
     watchDemoBtn.addEventListener('click', () => {
-        const target = document.getElementById('workflow') || document.getElementById('features');
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
+        const target = document.getElementById('workflow') || document.getElementById('product');
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 }
 
-const bookDemoBtn = document.getElementById('bookDemoBtn');
-if (bookDemoBtn) {
-    bookDemoBtn.addEventListener('click', () => {
-        // Placeholder: route to demo booking page or open modal
-        window.location.href = 'signup.html';
+function initFaqAccordions() {
+    const items = document.querySelectorAll('.faq-item');
+    items.forEach(item => {
+        item.addEventListener('toggle', () => {
+            if (!item.open) return;
+            items.forEach(other => {
+                if (other !== item) other.removeAttribute('open');
+            });
+        });
     });
 }
 
-// ============================================
-// INIT
-// ============================================
-document.addEventListener('DOMContentLoaded', initScrollReveal);
+window.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeMobileNav();
+});

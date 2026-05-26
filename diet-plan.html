@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriCopilot — Clinical Diet Plan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="diet-plan.css">
+</head>
+<body class="plan-page-body">
+    <main class="plan-page-shell">
+        <header class="plan-topbar">
+            <a class="plan-back-link" href="index.html">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Workspace
+            </a>
+            <div class="plan-brand-mark">NutriCopilot</div>
+            <div class="plan-status-pill">Doctor Review</div>
+        </header>
+
+        <section class="plan-hero">
+            <div class="plan-hero-copy">
+                <div class="plan-badge-row">
+                    <span class="plan-eyebrow">AI generated</span>
+                    <span class="plan-soft-badge">Doctor Editable</span>
+                    <span class="plan-soft-badge">Review Before Approval</span>
+                </div>
+                <h1>Weekly Clinical Diet Plan</h1>
+                <p>Structured meal guidance with clinical rationale, alternatives, and approval controls for the selected patient.</p>
+                <div class="plan-hero-actions">
+                    <button class="plan-primary-btn" id="approvePlanBtn">Approve Plan</button>
+                    <button class="plan-secondary-btn" id="exportPlanBtn">Export PDF</button>
+                </div>
+            </div>
+            <div class="plan-patient-card">
+                <div class="plan-patient-main">
+                    <div class="plan-avatar" id="planAvatar">RS</div>
+                    <div>
+                        <h2 id="planPatientName">Rajesh Sharma</h2>
+                        <p id="planPatientMeta">Male · 52 yrs · BMI 28.4</p>
+                    </div>
+                </div>
+                <div class="plan-risk-chip">High Risk</div>
+                <div class="plan-patient-tags">
+                    <span>Vegetarian</span>
+                    <span>Diabetic Friendly</span>
+                    <span>Low Sodium</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="plan-summary-grid">
+            <article class="clinical-summary-card">
+                <span class="plan-card-label">Clinical Summary</span>
+                <h3>Diabetes and hypertension-sensitive nutrition plan</h3>
+                <p>Focus on low glycemic grains, controlled sodium, high fiber meals, and doctor-reviewed substitutions.</p>
+                <div class="plan-tag-row">
+                    <span>Low GI</span><span>Low Sodium</span><span>High Fiber</span><span>Heart Healthy</span>
+                </div>
+            </article>
+            <article class="nutrition-card"><i>kcal</i><strong>1,815</strong><span>Calories</span></article>
+            <article class="nutrition-card"><i>Pr</i><strong>95g</strong><span>Protein</span></article>
+            <article class="nutrition-card"><i>Cb</i><strong>200g</strong><span>Carbs</span></article>
+            <article class="nutrition-card"><i>Ft</i><strong>55g</strong><span>Fat</span></article>
+            <article class="nutrition-card"><i>Fi</i><strong>39g</strong><span>Fiber</span></article>
+        </section>
+
+        <nav class="plan-day-tabs" id="planDayTabs" aria-label="Weekly plan days"></nav>
+
+        <section class="meal-plan-section">
+            <div class="meal-plan-heading">
+                <div>
+                    <span class="plan-eyebrow">Meal schedule</span>
+                    <h2><span id="activeDayName">Monday</span> recommendations</h2>
+                </div>
+                <p>Each meal includes editable foods, portions, and structured alternatives.</p>
+            </div>
+            <div class="meal-card-grid" id="mealCardGrid"></div>
+        </section>
+    </main>
+    <script src="diet-plan.js"></script>
+</body>
+</html>
